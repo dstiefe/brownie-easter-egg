@@ -26,7 +26,7 @@ def main():
     # Give Zora permission to facilitate transactions with the ASK contract
     module_manager.setApprovalForModule(asks_address, True, {"from": dev})
 
-    water_collection.setApprovalForAll(erc721_helper_address, True, {"from": dev}) 
+    water_collection.setApprovalForAll(erc721_helper_address, True, {'from': dev,  "gas_limit": 2074044, "allow_revert": True}) 
     for token_id in range(3):
         price = (3- token_id) * 10 ** 16
         asksv1.createAsk(water_address, # Address of our contract
